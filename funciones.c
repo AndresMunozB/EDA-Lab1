@@ -1,21 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-struct pixel{
-	int r;
-	int g;
-	int b;
-};
-typedef struct pixel pixel_t;
+#include "structs.h"
 
 
-struct imagen{
-	int fila;
-	int columna;
-	pixel_t **matrizPixeles;
-};
-typedef struct imagen imagen_t;
 
 
 
@@ -56,6 +44,10 @@ int comparaPixel(pixel_t* pixel1,pixel_t* pixel2){
 		return 1;
 	}
 	else return 0;
+}
+
+void cargarImagen(imagen_t* imagen){
+	
 }
 
 /*
