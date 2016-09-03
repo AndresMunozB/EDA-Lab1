@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 #include "structs.h"
 
 
@@ -65,6 +66,43 @@ void imprimirImagen(imagen_t* imagen){
 			imprimirPixel(&imagen->matrizPixeles[i][j]);
 		}
 		printf("\n");
+	}
+}
+
+void cargarImagen(){
+	FILE *iF;
+	
+
+		
+	if ( (iF = fopen("imagenPrincipal.txt","r")) != NULL)
+	{		
+		int a,b;
+		int c,d,e;
+		fscanf(iF,"%d %d\n",&a,&b);
+		printf("%d %d\n",a,b );
+		imagen_t* imagen= crearImagen(a,b);
+		int i,j;
+		for (i=0;i<a;i++){
+			for(j=0;j<b;j++){
+				fflush(stdin);
+				fscanf(iF,"%d,%d,%d",&c,&d,&e);
+				imagen->matrizPixeles[i][j].r=c;
+				imagen->matrizPixeles[i][j].r=d;
+				imagen->matrizPixeles[i][j].r=e;
+				
+			}
+			
+		}
+		printf("\n");
+		imprimirImagen(imagen);
+		
+		
+	
+		fclose(iF);			
+	
+	}
+	else{
+		printf("Archivo no existe o no se pudo abrir\n");
 	}
 }
 
