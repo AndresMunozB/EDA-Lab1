@@ -23,8 +23,8 @@ int main()
 				fscanf(iF,"%d,%d,%d",&c,&d,&e);
 				//printf("%d,%d,%d",c,d,e);
 				imagen->matrizPixeles[i][j].r=c;
-				imagen->matrizPixeles[i][j].r=d;
-				imagen->matrizPixeles[i][j].r=e;
+				imagen->matrizPixeles[i][j].g=d;
+				imagen->matrizPixeles[i][j].b=e;
 
 
 				//imprimirPixel(&imagen->matrizPixeles[i][j]);

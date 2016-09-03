@@ -54,8 +54,8 @@ int comparaPixel(pixel_t* pixel1,pixel_t* pixel2){
 	else return 0;
 }
 
-void imprimirPixel(pixel_t* pixel){
-	printf("%d,%d,%d ", pixel->r,pixel->g,pixel->b);
+void imprimirPixel(pixel_t pixel){
+	printf("%d,%d,%d ", pixel.r,pixel.g,pixel.b);
 }
 
 void imprimirImagen(imagen_t* imagen){
@@ -63,7 +63,7 @@ void imprimirImagen(imagen_t* imagen){
 
 	for (i=0;i<imagen->fila;i++){
 		for (j=0;j<imagen->columna;j++){
-			imprimirPixel(&imagen->matrizPixeles[i][j]);
+			imprimirPixel(imagen->matrizPixeles[i][j]);
 		}
 		printf("\n");
 	}
@@ -84,12 +84,15 @@ void cargarImagen(){
 		int i,j;
 		for (i=0;i<a;i++){
 			for(j=0;j<b;j++){
-				fflush(stdin);
+				//fflush(stdin);
 				fscanf(iF,"%d,%d,%d",&c,&d,&e);
+				printf("%d,%d,%d\n",c,d,e );
 				imagen->matrizPixeles[i][j].r=c;
-				imagen->matrizPixeles[i][j].r=d;
-				imagen->matrizPixeles[i][j].r=e;
-				
+				imagen->matrizPixeles[i][j].g=d;
+				imagen->matrizPixeles[i][j].b=e;
+				imprimirPixel(imagen->matrizPixeles[i][j]);
+				printf("\n");
+
 			}
 			
 		}
