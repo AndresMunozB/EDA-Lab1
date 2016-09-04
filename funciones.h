@@ -15,3 +15,4 @@ imagen_t* cargarImagenPrincipal(imagen_t* imagen);
 imagen_t** cargarImagenesBuscar(imagen_t** arreglo,int cantidadImagenes);
 void liberarImagenesArreglo(imagen_t** arregloImagenes,int cantidadImagenes);
 void imprimirImagenesArreglo(imagen_t** arregloImagenes,int cantidadImagenes);
+imagen_t* rotarImagen(imagen_t* imagen);

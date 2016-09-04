@@ -21,8 +21,11 @@ int main()
 	imprimirImagen(imagenPrincipal);
 	printf("\n");
 	imprimirImagenesArreglo(arregloImagenes,cantidadImagenes);
+	printf("\n");
 	
-	
+	imagenPrincipal= rotarImagen(imagenPrincipal);
+	printf("imagen principal:\n");
+	imprimirImagen(imagenPrincipal);
 	
 	//liberar imagenes:
 	liberarImagen(imagenPrincipal);

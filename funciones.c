@@ -175,6 +175,32 @@ void imprimirImagenesArreglo(imagen_t** arregloImagenes,int cantidadImagenes){
 		printf("\n");
 	}
 }
+int buscarImagen(imagen_t* imagenPrincipal, imagen_t* imagen){
+
+	int i,j;
+
+}
+imagen_t* rotarImagen(imagen_t* imagen){
+	imagen_t* imagenRotada;
+	imagenRotada=inicializarImagen(imagenRotada,imagen->columna,imagen->fila);
+	
+	int i,j,h;
+	
+	for (int i = 0; i < imagen->fila; i++){
+		h=imagen->columna-1;
+		for(int j = 0; j < imagen->columna; j++){
+			imagenRotada->pixeles[h][i] = imagen->pixeles[i][j];
+			h--;
+		}
+
+		
+	}
+	liberarImagen(imagen);
+
+	return imagenRotada;
+}
+// 
+
 
 
 
