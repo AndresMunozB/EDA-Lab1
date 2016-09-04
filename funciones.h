@@ -1,17 +1,17 @@
 #include "estructuras.h"
-#ifndef _FUNCIONES_H
-#define _FUNCIONES_H
+#include <stdlib.h>
+#include <stdio.h>
+#include <ctype.h>
 
-//typedef struct pixel pixel_t;
-//typedef struct imagen imagen_t;
-imagen_t* crearImagen(int fila,int columna);
-void cargarPixel(int r,int g, int b, pixel_t* pixel);
-int comparaPixel(pixel_t* pixel1,pixel_t* pixel2);
-void imprimirPixel(pixel_t* pixel);
-void imprimirImagen(imagen_t* imagen);
+imagen_t* inicializarImagen(imagen_t* imagen,int fila, int columna);
 void liberarImagen(imagen_t* imagen);
-void cargarImagen();
-imagen_t2 crearImagen2(int fila,int columna);
-
-
-#endif
+void imprimirPixel(pixel_t pixel);
+void imprimirImagen(imagen_t* imagen);
+void cargarPixel(int r,int g, int b, pixel_t* pixel);
+void cargarImagen(imagen_t* imagen,FILE* archivo);
+int compararPixel(pixel_t* pixel1,pixel_t* pixel2);
+int contarImagenes();
+imagen_t* cargarImagenPrincipal(imagen_t* imagen);
+imagen_t** cargarImagenesBuscar(imagen_t** arreglo,int cantidadImagenes);
+void liberarImagenesArreglo(imagen_t** arregloImagenes,int cantidadImagenes);
+void imprimirImagenesArreglo(imagen_t** arregloImagenes,int cantidadImagenes);
