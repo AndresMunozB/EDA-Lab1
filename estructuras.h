@@ -12,10 +12,9 @@ typedef struct pixel pixel_t;
 struct imagen{
 	int fila;
 	int columna;
-	pixel_t **matrizPixeles;
+	pixel_t **pixeles;
 };
 typedef struct imagen imagen_t;
-
 
 #endif
 

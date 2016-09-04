@@ -1,4 +1,4 @@
-#include "structs.h"
+#include "estructuras.h"
 #ifndef _FUNCIONES_H
 #define _FUNCIONES_H
 
@@ -11,6 +11,7 @@ void imprimirPixel(pixel_t* pixel);
 void imprimirImagen(imagen_t* imagen);
 void liberarImagen(imagen_t* imagen);
 void cargarImagen();
+imagen_t2 crearImagen2(int fila,int columna);
 
 
 #endif
