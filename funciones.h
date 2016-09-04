@@ -16,3 +16,4 @@ imagen_t** cargarImagenesBuscar(imagen_t** arreglo,int cantidadImagenes);
 void liberarImagenesArreglo(imagen_t** arregloImagenes,int cantidadImagenes);
 void imprimirImagenesArreglo(imagen_t** arregloImagenes,int cantidadImagenes);
 imagen_t* rotarImagen(imagen_t* imagen);
+int buscarImagen(imagen_t* imagenPrincipal, imagen_t* imagen);
