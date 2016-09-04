@@ -88,8 +88,8 @@ void cargarImagen(imagen_t* imagen,FILE* archivo){
 }
 
 
-int compararPixel(pixel_t* pixel1,pixel_t* pixel2){
-	if (pixel1->r==pixel2->r && pixel1->g==pixel2->g && pixel1->b==pixel2->b ){
+int compararPixel(pixel_t pixel1,pixel_t pixel2){
+	if (pixel1.r==pixel2.r && pixel1.g==pixel2.g && pixel1.b==pixel2.b ){
 		return 1;
 	}
 	else return 0;
@@ -175,11 +175,6 @@ void imprimirImagenesArreglo(imagen_t** arregloImagenes,int cantidadImagenes){
 		printf("\n");
 	}
 }
-int buscarImagen(imagen_t* imagenPrincipal, imagen_t* imagen){
-
-	int i,j;
-
-}
 imagen_t* rotarImagen(imagen_t* imagen){
 	imagen_t* imagenRotada;
 	imagenRotada=inicializarImagen(imagenRotada,imagen->columna,imagen->fila);
@@ -195,10 +190,50 @@ imagen_t* rotarImagen(imagen_t* imagen){
 
 		
 	}
-	liberarImagen(imagen);
+	//liberarImagen(imagen);
 
 	return imagenRotada;
 }
+int buscarImagen(imagen_t* imagenPrincipal, imagen_t* imagen){
+	int rotar=0;
+	int i,j;
+	do{
+		for (i=0;i<imagenPrincipal->fila;i++){
+			for (j=0;j<imagenPrincipal->columna;j++){
+				if (compararPixel(imagenPrincipal->pixeles[i][j],imagen->pixeles[0][0])){
+					//printf("pixel igual\n");
+					int a,b,contador;
+					contador=0;
+					for (a=0;a<imagen->fila;a++){
+						for (b=0;b<imagen->fila;b++){
+							if (a+i<imagenPrincipal->fila && b+j<imagenPrincipal->columna){
+								if (compararPixel(imagenPrincipal->pixeles[a+i][b+j],imagen->pixeles[a][b])){
+									//printf("no son iguales\n");
+									contador+=1;
+									//printf("es igual= i:%d,j:%d,a:%d,b:%d \n",i+a,j+b,a,b );
+								}
+							}
+
+						}
+					}
+					if(contador==(imagen->fila*imagen->columna)){
+						return 1;
+					}
+				}
+			}
+		}
+
+		imagen=rotarImagen(imagen);
+		rotar+=1;
+	}while (rotar<4);	
+	return 0;
+/*0 sinrotar rotar +1
+1 rotada 90 rotar +1
+2 rota 180 rotar  +1
+3 rota 270 rotar +1*/
+
+}
+
 // 
 
 
