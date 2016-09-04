@@ -1,4 +1,5 @@
 #include "estructuras.h"
+//#include "funciones2.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
@@ -180,7 +181,7 @@ void imprimirImagenesArreglo(imagen_t** arregloImagenes,int cantidadImagenes){
 
 
 
-int main(){
+/*int main(){
 
 	//cargar imagenes:
 	imagen_t* imagenPrincipal;
@@ -207,4 +208,4 @@ int main(){
 
 
 	return 0;
-}
+}*/
