@@ -17,31 +17,51 @@ int main()
 	
 	
 	//imprimir Imagenes:
-	printf("imagen principal:\n");
-	imprimirImagen(imagenPrincipal);
-	printf("\n");
-	imprimirImagenesArreglo(arregloImagenes,cantidadImagenes);
-	printf("\n");
+	//printf("imagen principal:\n");
+	//imprimirImagen(imagenPrincipal);
+	//printf("\n");
+	//imprimirImagenesArreglo(arregloImagenes,cantidadImagenes);
+	//printf("\n");
 	
 	//rotar la imagen! e imprimirla :D 
-	imagenPrincipal= rotarImagen(imagenPrincipal);
-	printf("imagen principal:\n");
-	imprimirImagen(imagenPrincipal);
-	printf("girar!\n");
-	arregloImagenes[1]=rotarImagen(arregloImagenes[1]);
-	imprimirImagen(arregloImagenes[1]);
-	printf("girar!\n");
-	arregloImagenes[1]=rotarImagen(arregloImagenes[1]);
-	imprimirImagen(arregloImagenes[1]);
-	printf("girar!\n");
-	arregloImagenes[1]=rotarImagen(arregloImagenes[1]);
-	imprimirImagen(arregloImagenes[1]);
-	printf("girar!\n");
-	printf("valor: %d\n", buscarImagen(imagenPrincipal,arregloImagenes[1]));
-	printf("valor: %d\n", buscarImagen(imagenPrincipal,arregloImagenes[0]));
-	printf("valor: %d\n", buscarImagen(imagenPrincipal,arregloImagenes[2]));
+	//imagenPrincipal= rotarImagen(imagenPrincipal);
+	//imagenPrincipal= rotarImagen(imagenPrincipal);
+	//imagenPrincipal= rotarImagen(imagenPrincipal);
+	//printf("imagen principal:\n");
+	//imprimirImagen(imagenPrincipal);
 	
 	
+	int i;
+	for (i=0;i<cantidadImagenes;i++){
+
+		int rotar=0;
+		int buscar=0;
+		while (rotar<4){ //mientras no se hagan todas las rotaciones;
+			//printf("ROTAR!!! :%d\n",rotar );
+			//imprimirImagen(arregloImagenes[i]);
+			buscar=buscarImagen(imagenPrincipal,arregloImagenes[i]);
+			if (buscar==1){// si se encuentra la imagen sale del buclei
+				printf("Imagen %d: Encontrada.\n",i+1 );
+				break;
+			}
+			if(rotar==3){
+				printf("Imagen %d: No encontrada.\n",i+1 );
+				break;
+			}
+			else{
+				arregloImagenes[i]=rotarImagen(arregloImagenes[i]);
+				rotar++;
+			}
+			
+		}
+	}
+
+	
+	
+	
+
+	//printf("VALOR!!!!!: %d\n", buscarImagen(imagenPrincipal,arregloImagenes[1]));
+	//rotar+=1;
 	//liberar imagenes:
 	liberarImagen(imagenPrincipal);
 	liberarImagenesArreglo(arregloImagenes,cantidadImagenes);

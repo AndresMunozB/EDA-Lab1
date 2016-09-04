@@ -195,9 +195,9 @@ imagen_t* rotarImagen(imagen_t* imagen){
 	return imagenRotada;
 }
 int buscarImagen(imagen_t* imagenPrincipal, imagen_t* imagen){
-	int rotar=0;
+	
 	int i,j;
-	do{
+	
 		for (i=0;i<imagenPrincipal->fila;i++){
 			for (j=0;j<imagenPrincipal->columna;j++){
 				if (compararPixel(imagenPrincipal->pixeles[i][j],imagen->pixeles[0][0])){
@@ -217,15 +217,14 @@ int buscarImagen(imagen_t* imagenPrincipal, imagen_t* imagen){
 						}
 					}
 					if(contador==(imagen->fila*imagen->columna)){
+						//printf("encontrada la igualdad de imagen\n");
 						return 1;
 					}
 				}
 			}
 		}
 
-		imagen=rotarImagen(imagen);
-		rotar+=1;
-	}while (rotar<4);	
+	
 	return 0;
 /*0 sinrotar rotar +1
 1 rotada 90 rotar +1
