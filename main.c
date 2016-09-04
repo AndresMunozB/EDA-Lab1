@@ -7,9 +7,6 @@
 // abrir archivo imagesBuscar y guardar en memoria separando cada imagenes distinta
 // buscar las imagenes en el archivo de la imagen principal
 // 
-void scan(FILE* file){
-	
-}
 
 int main()
 {

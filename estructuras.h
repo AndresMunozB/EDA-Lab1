@@ -16,6 +16,7 @@ struct imagen{
 };
 typedef struct imagen imagen_t;
 
+
 #endif
 
 
