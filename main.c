@@ -23,6 +23,7 @@ int main()
 	imprimirImagenesArreglo(arregloImagenes,cantidadImagenes);
 	printf("\n");
 	
+	//rotar la imagen! e imprimirla :D
 	imagenPrincipal= rotarImagen(imagenPrincipal);
 	printf("imagen principal:\n");
 	imprimirImagen(imagenPrincipal);

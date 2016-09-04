@@ -186,9 +186,9 @@ imagen_t* rotarImagen(imagen_t* imagen){
 	
 	int i,j,h;
 	
-	for (int i = 0; i < imagen->fila; i++){
+	for (i = 0; i < imagen->fila; i++){
 		h=imagen->columna-1;
-		for(int j = 0; j < imagen->columna; j++){
+		for(j = 0; j < imagen->columna; j++){
 			imagenRotada->pixeles[h][i] = imagen->pixeles[i][j];
 			h--;
 		}
