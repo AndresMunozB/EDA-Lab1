@@ -8,10 +8,10 @@
 int main()
 {
 	// CARGAR LAS IMAGENES:
-	//cargando imagen principal...
+
 	imagen_t* imagenPrincipal;
 	imagenPrincipal=cargarImagenPrincipal(imagenPrincipal);
-	//cargando las imagenes a buscar..
+
 	imagen_t** arregloImagenes;
 	int cantidadImagenes=contarImagenes();
 	arregloImagenes=cargarImagenesBuscar(arregloImagenes,cantidadImagenes);

@@ -133,6 +133,7 @@ void liberarImagenesArreglo(imagen_t** arregloImagenes,int cantidadImagenes){
 		liberarImagen(arregloImagenes[i]);
 	}
 }
+
 void imprimirImagenesArreglo(imagen_t** arregloImagenes,int cantidadImagenes){
 	int i;
 	for (i=0;i<cantidadImagenes;i++){
@@ -141,12 +142,11 @@ void imprimirImagenesArreglo(imagen_t** arregloImagenes,int cantidadImagenes){
 		printf("\n");
 	}
 }
+
 imagen_t* rotarImagen(imagen_t* imagen){
 	imagen_t* imagenRotada;
 	imagenRotada=inicializarImagen(imagenRotada,imagen->columna,imagen->fila);
-	
 	int i,j,h;
-	
 	for (i = 0; i < imagen->fila; i++){
 		h=imagen->columna-1;
 		for(j = 0; j < imagen->columna; j++){
@@ -157,13 +157,11 @@ imagen_t* rotarImagen(imagen_t* imagen){
 		
 	}
 	liberarImagen(imagen);
-
 	return imagenRotada;
 }
+
 int buscarImagen(imagen_t* imagenPrincipal, imagen_t* imagen){
-	
 	int i,j;
-	
 		for (i=0;i<imagenPrincipal->fila;i++){
 			for (j=0;j<imagenPrincipal->columna;j++){
 				if (compararPixel(imagenPrincipal->pixeles[i][j],imagen->pixeles[0][0])){
@@ -174,20 +172,13 @@ int buscarImagen(imagen_t* imagenPrincipal, imagen_t* imagen){
 						for (b=0;b<imagen->columna;b++){
 							if (a+i<imagenPrincipal->fila && b+j<imagenPrincipal->columna){
 								if (compararPixel(imagenPrincipal->pixeles[a+i][b+j],imagen->pixeles[a][b])){
-									//printf("pixel1: \n");
-									//imprimirPixel(imagenPrincipal->pixeles[a+i][b+j]);
-									//printf("pixel1: \n");
-									//imprimirPixel(imagen->pixeles[a][b]);
-									//printf("no son iguales\n");
 									contador+=1;
-									//printf("es igual= i:%d,j:%d,a:%d,b:%d \n",i+a,j+b,a,b );
 								}
 							}
 
 						}
 					}
 					if(contador==(imagen->fila*imagen->columna)){
-						//printf("encontrada la igualdad de imagen\n");
 						return 1;
 					}
 				}
