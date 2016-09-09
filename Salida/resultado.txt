@@ -1,0 +1,4 @@
+Imagen 1: Encontrada.
+Imagen 2: Encontrada.
+Imagen 3: No encontrada.
+Imagen 4: No encontrada.
