@@ -15,6 +15,7 @@ int main()
 	imagen_t** arregloImagenes;
 	int cantidadImagenes=contarImagenes();
 	arregloImagenes=cargarImagenesBuscar(arregloImagenes,cantidadImagenes);
+
 	//TERMINO DE CARGAR LAS IMAGENES.
 
 	//INICIO ALGORITMO DE BUSQUEDA DE LAS IMAGENES:

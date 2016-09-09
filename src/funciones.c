@@ -1,4 +1,5 @@
- #include "estructuras.h"
+#include "estructuras.h"
+#include "funciones.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>

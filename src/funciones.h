@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
-
+#ifndef _FUNCIONES_H_
+#define _FUNCIONES_H_
 /*
 	Funciones iniciarImagen
 	recibe de argumento un puntero de la estructura imagen_t y dos enteros
@@ -44,7 +45,7 @@ void cargarImagen(imagen_t* imagen,FILE* archivo);
 	@param
 	@return
 */
-int compararPixel(pixel_t* pixel1,pixel_t* pixel2);
+int compararPixel(pixel_t pixel1,pixel_t pixel2);
 /*
 	Funcion iniciarImagen
 	@param
@@ -87,3 +88,4 @@ imagen_t* rotarImagen(imagen_t* imagen);
 int buscarImagen(imagen_t* imagenPrincipal, imagen_t* imagen);
 
 void BusquedaTotal(int cantidadImagenes,imagen_t** arregloImagenes,imagen_t* imagenPrincipal);
+#endif
