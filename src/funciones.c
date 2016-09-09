@@ -75,7 +75,7 @@ int compararPixel(pixel_t pixel1,pixel_t pixel2){
 
 int contarImagenes(){
 	FILE* archivo;
-	archivo = fopen("imagesBuscar.txt","r");
+	archivo = fopen("Entrada/imagesBuscar.txt","r");
 	char cadena[LARGOLINE];
 	int contadorImagenes=0;
 	while (!feof(archivo)){
@@ -91,7 +91,7 @@ int contarImagenes(){
 imagen_t* cargarImagenPrincipal(imagen_t* imagen){
 	
 	FILE* archivo;
-	archivo = fopen("imagenPrincipal.txt","r");
+	archivo = fopen("Entrada/imagenPrincipal.txt","r");
 	char cadena[LARGOLINE];
 	fgets(cadena,LARGOLINE,archivo);
 	if (isdigit(cadena[0]) && cadena[1]==' ' && isdigit(cadena[2]) ){
@@ -109,7 +109,7 @@ imagen_t* cargarImagenPrincipal(imagen_t* imagen){
 imagen_t** cargarImagenesBuscar(imagen_t** arreglo,int cantidadImagenes){
 	arreglo=malloc(sizeof(imagen_t*)*cantidadImagenes);
 	FILE* archivo;
-	archivo = fopen("imagesBuscar.txt","r");
+	archivo = fopen("Entrada/imagesBuscar.txt","r");
 	char cadena[LARGOLINE];
 	int contadorImagenes=0;
 	while (!feof(archivo)){
@@ -190,7 +190,7 @@ int buscarImagen(imagen_t* imagenPrincipal, imagen_t* imagen){
 
 void BusquedaTotal(int cantidadImagenes,imagen_t** arregloImagenes,imagen_t* imagenPrincipal){
 
-	FILE* archivo=fopen("resultado.txt","w");
+	FILE* archivo=fopen("Salida/resultado.txt","w");
 	int i;
 	for (i=0;i<cantidadImagenes;i++){
 		int rotar=0;
