@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 #define LARGOLINE 50000
 
 imagen_t* inicializarImagen(imagen_t* imagen,int fila, int columna){
@@ -80,7 +81,7 @@ int contarImagenes(){
 	int contadorImagenes=0;
 	while (!feof(archivo)){
 		fgets(cadena,LARGOLINE,archivo);
-		if (isdigit(cadena[0]) && cadena[1]==' ' && isdigit(cadena[2]) ){
+		if (buscarLinea(cadena)){
 			contadorImagenes++;
 		}
 	}
@@ -88,15 +89,53 @@ int contarImagenes(){
 	return contadorImagenes;
 }
 
+int buscarLinea(char* cadena){
+	int i,largo,contadorEspacios,contadorComas;
+	largo= strlen(cadena);
+	contadorEspacios=0;
+	contadorComas=0;
+	for (i=0;i<largo;i++){
+		if (cadena[i]==' '){
+			contadorEspacios+=1;
+		}
+		if (cadena[i]==','){
+			contadorComas+=1;
+		}
+	}
+	if(contadorComas==0 && contadorEspacios==1){
+		return 1;
+	}
+	return 0;
+}
+void buscarDimensiones(char* cadena,int* fil,int*col){
+	int i,largo,posicion;
+	posicion=0;
+	largo = strlen(cadena);
+	for (i=0;i<largo;i++){
+		if (cadena[i]==' '){
+			posicion=i;
+		}
+	}
+	char numero1[posicion];
+	char numero2[largo-posicion+1];
+	memset(numero1,0,sizeof(numero1));
+	memset(numero2,0,sizeof(numero2));
+	memcpy(numero1,cadena,posicion);
+	memcpy(numero2,&cadena[posicion+1],(largo-posicion));
+	int a,b;
+	*fil=atoi(numero1);
+	*col=atoi(numero2);
+
+}
 imagen_t* cargarImagenPrincipal(imagen_t* imagen){
 	
 	FILE* archivo;
 	archivo = fopen("Entrada/imagenPrincipal.txt","r");
 	char cadena[LARGOLINE];
 	fgets(cadena,LARGOLINE,archivo);
-	if (isdigit(cadena[0]) && cadena[1]==' ' && isdigit(cadena[2]) ){
-		int fila=atoi(&cadena[0]);
-		int columna=atoi(&cadena[2]);
+	int fila,columna;
+	if (buscarLinea(cadena)){
+		buscarDimensiones(cadena,&fila,&columna);
 		imagen=inicializarImagen(imagen,fila,columna);
 		cargarImagen(imagen,archivo);
 		
@@ -114,9 +153,9 @@ imagen_t** cargarImagenesBuscar(imagen_t** arreglo,int cantidadImagenes){
 	int contadorImagenes=0;
 	while (!feof(archivo)){
 		fgets(cadena,LARGOLINE,archivo);
-		if (isdigit(cadena[0]) && cadena[1]==' ' && isdigit(cadena[2]) ){
-			int fila=atoi(&cadena[0]);
-			int columna=atoi(&cadena[2]);
+		int fila,columna;
+		if (buscarLinea(cadena)){
+			buscarDimensiones(cadena,&fila,&columna);
 			imagen_t* imagen;
 			imagen=inicializarImagen(imagen,fila,columna);
 			cargarImagen(imagen,archivo);
@@ -213,6 +252,14 @@ void BusquedaTotal(int cantidadImagenes,imagen_t** arregloImagenes,imagen_t* ima
 	}
 	fclose(archivo);
 }
+
+// int main(){
+// 	char hola[100]="23 21";
+// 	printf("%d\n",buscarLinea(hola) );
+// 	int fil,col;
+// 	buscarDimensiones(hola,&fil,&col);
+// 	printf("%d,%d\n",fil,col );
+// }
 
 
 

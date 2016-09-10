@@ -15,6 +15,8 @@ int main()
 	imagen_t** arregloImagenes;
 	int cantidadImagenes=contarImagenes();
 	arregloImagenes=cargarImagenesBuscar(arregloImagenes,cantidadImagenes);
+	//imprimirImagen(imagenPrincipal);
+	//imprimirImagenesArreglo(arregloImagenes,cantidadImagenes);
 
 	//TERMINO DE CARGAR LAS IMAGENES.
 
