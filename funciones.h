@@ -19,7 +19,9 @@ imagen_t* inicializarImagen(imagen_t* imagen,int fila, int columna);
 	Procedimiento liberarImagen
 	@param imagen_t* imagen
 */
+int buscarLinea(char* cadena);
 void liberarImagen(imagen_t* imagen);
+void buscarDimensiones(char* cadena,int* fil,int*col);
 /*
 	Procedimiento imprimirPixel
 	@param pixel_t pixel
