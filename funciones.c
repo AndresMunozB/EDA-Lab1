@@ -118,13 +118,17 @@ void buscarDimensiones(char* cadena,int* fil,int*col){
 	}
 	char numero1[posicion];
 	char numero2[largo-posicion+1];
-	memset(numero1,0,sizeof(numero1));
-	memset(numero2,0,sizeof(numero2));
+	memset(numero1,'0',sizeof(numero1));
+	memset(numero2,'0',sizeof(numero2));
 	memcpy(numero1,cadena,posicion);
 	memcpy(numero2,&cadena[posicion+1],(largo-posicion));
+	printf("%s\n",numero1 );
+	printf("%s\n",numero2 );
 	int a,b;
 	*fil=atoi(numero1);
 	*col=atoi(numero2);
+	printf("%d\n",*fil );
+	printf("%d\n",*col );
 
 }
 imagen_t* cargarImagenPrincipal(imagen_t* imagen){
